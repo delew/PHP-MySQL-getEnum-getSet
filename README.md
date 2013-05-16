@@ -7,12 +7,12 @@
 function getEnum($table, $field, $mask=false);
 ```
 
-parameters:
+#####parameters:
 * $table: `<string>` table name
 * $field: `<string>` field name
 * $mask: `<int>` **(optional)** MySQL index of searched value
 
-return:
+#####return:
 * _if $mask specified_ `<string>|false` value corresponding to specified index or **false** if index doesn't exist
 * _else_ `<array>` associatve array with MySQL indexes for keys
 
@@ -22,12 +22,12 @@ return:
 function getSet($table, $field, $mask=false);
 ```
 
-parameters:
+#####parameters:
 * $table: `<string>` table name
 * $field: `<string>` field name
 * $mask: `<int>` **(optional)** decimal value representing binary index representation
 
-return:
+#####return:
 * _if $mask specified_ `<array>` associatve array with MySQL indexes for keys matching with $mask
 * _else_ `<array>` associatve array with MySQL indexes for keys
 
