@@ -16,7 +16,7 @@ function getEnum($table, $field, $mask=false);
 * _if $mask specified_ `<string>|false` value corresponding to specified index or **false** if index doesn't exist
 * _else_ `<array>` associatve array with MySQL indexes for keys
 
-#####examples:
+#### getEnum() examples
 ```sql
 ALTER TABLE example ADD color ENUM('red','green','blue','yellow');
 ```
@@ -53,7 +53,7 @@ function getSet($table, $field, $mask=false);
 * _if $mask specified_ `<array>` associatve array with MySQL indexes for keys matching with $mask
 * _else_ `<array>` associatve array with MySQL indexes for keys
 
-#####examples:
+#### getSet() examples
 ```sql
 ALTER TABLE example ADD colors SET('red','green','blue','yellow');
 ```
