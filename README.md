@@ -16,6 +16,28 @@ function getEnum($table, $field, $mask=false);
 * _if $mask specified_ `<string>|false` value corresponding to specified index or **false** if index doesn't exist
 * _else_ `<array>` associatve array with MySQL indexes for keys
 
+#####examples:
+```sql
+ALTER TABLE example ADD color ENUM('red','green','blue','yellow');
+```
+ Index | Value
+:------|:---------------
+ 0     | 
+ 1     | red
+ 2     | green
+ 3     | blue
+ 4     | yellow
+```php
+getEnum('example', 'color');
+==> array(1=>'red', 2=>'green', 3=>'blue', 4=>'yellow');
+
+getEnum('example', 'color', 3);
+==> 'blue';
+
+getEnum('example', 'color', 5);
+==> false;
+```
+
 ## getSet()
 
 ```php
@@ -30,6 +52,31 @@ function getSet($table, $field, $mask=false);
 #####return:
 * _if $mask specified_ `<array>` associatve array with MySQL indexes for keys matching with $mask
 * _else_ `<array>` associatve array with MySQL indexes for keys
+
+#####examples:
+```sql
+ALTER TABLE example ADD colors SET('red','green','blue','yellow');
+```
+ Index | Value
+:------|:---------------
+ 0     | 
+ 1     | red
+ 2     | green
+ 4     | blue
+ 8     | yellow
+```php
+getSet('example', 'colors');
+==> array(1=>'red', 2=>'green', 4=>'blue', 8=>'yellow');
+
+getSet('example', 'color', 4);
+==> array(4=>'blue');
+
+getSet('example', 'color', 5);
+==> array(1=>'red', 4=>'blue');
+
+getSet('example', 'colors', 14);
+==> array(2=>'green', 4=>'blue', 8=>'yellow');
+```
 
 ## ENUM and SET documentation
 
